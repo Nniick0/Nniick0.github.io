@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Firebase Auth</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+      body{
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+      #MainForm{
+        margin: 0;
+      }
+    </style>
+    <style>
+      .Register-title{
+          color: white;
+      }
+      html {
+          height: 100%;
+      }
+
+      body {
+          background-image: url(background.png);
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position: center;
+          background-size: cover;
+      }
+  </style>
+  </head>
+  <body>
+    <form id="MainForm" class="w-25 m-4">
+      
+
+        <h2 class="mb-3 Register-title">Register User</h2>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="emailInp" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="passwordInp" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="fnameInp" placeholder="Password">
+            <label for="floatingPassword">First Name</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="lnameInp" placeholder="Password">
+            <label for="floatingPassword">Last Name</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="float: right;">Create New User</button>
+          <!--<a href="login.html"> <button type="text" style="float: right;"  class="btn btn-primary me-2">Sign In</button></a>-->
+          <a href="login.html"> <button type="button" style="float: right;"  class="btn btn-primary me-2">Sign in</button></a>
+    
+    
+        </form>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+        import { getFirestore,doc ,setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyCkUWiMW8XJLlEqjIG6hJAT-yHsjPvlFZA",
+          authDomain: "sa-project-d37d8.firebaseapp.com",
+          projectId: "sa-project-d37d8",
+          storageBucket: "sa-project-d37d8.appspot.com",
+          messagingSenderId: "772384490941",
+          databaseURL: "https://sa-project-d37d8-default-rtdb.firebaseio.com",
+          appId: "1:772384490941:web:c12054861e130c2cca3ed4",
+          measurementId: "G-PZD2EKXE0T"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore();
+        const auth = getAuth(app);
+        const analytics = getAnalytics(app);
+
+        let EmailInp = document.getElementById('emailInp');
+        let PassInp = document.getElementById('passwordInp');
+        let FnameInp = document.getElementById('fnameInp');
+        let LnameInp = document.getElementById('lnameInp');
+        let MainForm = document.getElementById('MainForm');
+
+        let RegisterUser = evt => {
+            evt.preventDefault();
+
+            createUserWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+            .then(async (credentials) => {
+                var ref = doc(db, "UserAuthList", credentials.user.uid);
+                await setDoc(ref , {
+                    firstname: FnameInp.value,
+                    lastname: LnameInp.value
+                })
+
+                alert('註冊成功');
+            })
+            .catch((error) => {
+                alert(error.message);
+                console.log(error.code);
+                console.log(error.message);
+
+            })
+        }
+
+        MainForm.addEventListener('submit',RegisterUser);
+      </script>
+
+
+  </body>
+</html>

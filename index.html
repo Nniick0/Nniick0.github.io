@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>食物盲盒</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .offcanvas-body {
+      font-size: 1.4rem; /* 或您想要的任何大小 */
+    }
+
+    .navbar-brand {
+      font-size: 1.6rem; /* 或您想要的任何大小 */
+    }
+
+    .carousel {
+      margin-bottom: 6rem; 
+    }
+
+    #myCarousel {
+    max-width: 90%; /* 設置最大寬度為父元素的70% */
+    margin: auto; /* 水平居中 */
+    }
+
+    .carousel-item img {
+    width: 100%; /* 讓圖片寬度適應容器 */
+    height: auto; /* 高度自動調整 */
+    }
+  </style>
+  <!-- Css模板 -->
+  <link href="carousel.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar bg-body-tertiary fixed-top">
+      <div class="container-fluid">
+        <!-- 使用 d-flex 類使元素水平排列 -->
+        <div class="d-flex align-items-center">
+          <!-- offcanvas 按鈕 -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- 標題在按鈕旁邊 -->
+          <a class="navbar-brand ms-2" href="index.html">食物盲盒</a>
+        </div>
+
+        <!-- 將搜索表單放在最右邊 -->
+        <form class="ms-auto d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        <!-- 從左邊出現的 offcanvas -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title fs-2" id="offcanvasNavbarLabel">食物盲盒</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- 導航項目 -->
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">個人</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="cart.html">購物車</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">歷史訂單</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">喜好餐廳</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">優惠卷</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">錢包</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  會員登入
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="login.html">登入</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="register.html">註冊</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div id="myCarousel" class="carousel slide mb-4" data-bs-ride="carousel" >
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="photo/food2.jpg" alt="漢堡">
+
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>想吃東西嗎?</h1>
+              <p>不知道吃甚麼我們來幫你決定</p>
+              <p><a class="btn btn-lg btn-primary" href="login.html">立即註冊</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="photo/food3.jpg" alt="咖啡">
+
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>肚子餓?就隨便亂點</h1>
+              <p>Hungry? Just Order~</p>
+              <p><a class="btn btn-lg btn-primary" href="login.html">立即註冊</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="photo/food4.jpg" alt="咖啡">
+
+          <div class="container">
+            <div class="carousel-caption text-end">
+              <h1>立即註冊，享受美食</h1>
+              <p>滿500就送你200購物金</p>
+              <p><a class="btn btn-lg btn-primary" href="login.html">立即註冊</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+    <!-- Marketing messaging and featurettes
+  ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row row-cols-2 row-cols-md-3 g-4">
+
+        <div class="col">
+          <div class="card">
+            <img src="photo/food1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">阿宏漢堡 北市東店</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img src="photo/Korean Bibimbap! [OC][1920X1080].jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">阿宏韓式炸醬麵</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img src="photo/delicious-healthy-asian-food-black-textured-background-with-copy-space.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">阿宏海南雞麵</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img src="photo/Wallpaper coffee cookies cup notebook.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">阿宏咖啡廳</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img src="photo/Свежий нарезанный хлеб на столе Обои для рабочего стола 1920x1080.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">阿宏麵包店</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.container -->
+
+    <div class="container">
+      <footer class="py-5">
+        <div class="row">
+          <div class="col-2">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-2">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-4 offset-1">
+            <form>
+              <h5>Subscribe to our newsletter</h5>
+              <p>Monthly digest of whats new and exciting from us.</p>
+              <div class="d-flex w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden">Email address</label>
+                <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                <button class="btn btn-primary" type="button">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+        <div class="d-flex justify-content-between py-4 my-4 border-top">
+          <p>&copy; 2022 Company, Inc. All rights reserved.</p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+            <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+    
+    
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script>
+    let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+    let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+
+  </script>
+
+
+</body>
+
+</html>
